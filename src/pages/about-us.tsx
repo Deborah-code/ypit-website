@@ -5,6 +5,7 @@ export default function AboutUs() {
     <>
       <main>
         <Navbar />
+        <h1 className="text-red">Creating a Space for Young People to</h1>
       </main>
     </>
   );
