@@ -13,7 +13,7 @@ const LargeImageCTA = () => {
   };
   return (
     <div style={ContainerStyle}>
-      <Image src={largeLogo} alt="Large Ypit Logo" />
+      <Image src={largeLogo} alt="Large Ypit Logo" objectFit="contain" />
       <h4>Discover the power of young people in tech.</h4>
       <h4 style={gradientStyle}>Connect and Grow!</h4>
       <div
