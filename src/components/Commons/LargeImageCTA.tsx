@@ -8,7 +8,7 @@ const LargeImageCTA = () => {
   const windowWidth = useWindowSize().width!;
   const ContainerStyle: CSSProperties = {
     textAlign: "center",
-    paddingBottom: 96,
+    paddingBottom: windowWidth > 767 ? 96 : 64,
     maxWidth: 1220,
     margin: "auto",
   };

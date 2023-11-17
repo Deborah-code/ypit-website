@@ -16,7 +16,7 @@ const Carousel = (props: any) => {
       <Swiper
         slidesPerView={slidesPerView}
         keyboard={true}
-        spaceBetween={150}
+        spaceBetween={80}
         mousewheel={true}
       >
         {props.components.map((slide: any, index: number) => (
