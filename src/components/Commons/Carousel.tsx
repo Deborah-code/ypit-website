@@ -12,18 +12,18 @@ const Carousel = (props: any) => {
     } else return windowWidth / 300;
   }, [windowWidth]);
   return (
-    <div className="swiper-container">
+    <>
       <Swiper
         slidesPerView={slidesPerView}
         keyboard={true}
-        spaceBetween={50}
+        spaceBetween={150}
         mousewheel={true}
       >
         {props.components.map((slide: any, index: number) => (
-          <SwiperSlide>{slide}</SwiperSlide>
+          <SwiperSlide key={index}>{slide}</SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </>
   );
 };
 

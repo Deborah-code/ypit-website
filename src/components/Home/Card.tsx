@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { CSSProperties, FC } from "react";
 import { purpleLight } from "~/styles/Theme";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 interface CardProps {
   image: any;
   heading: string;
   body: string;
+  color: string;
 }
 
-const Card: FC<CardProps> = ({ image, heading, body }) => {
+const Card: FC<CardProps> = ({ image, heading, body, color }) => {
   const CardStyle: CSSProperties = {
-    backgroundColor: purpleLight,
+    backgroundColor: color ? color : purpleLight,
     borderRadius: 23,
     paddingTop: 24,
     paddingLeft: 22,
@@ -19,6 +21,7 @@ const Card: FC<CardProps> = ({ image, heading, body }) => {
     width: "100%",
     color: "black",
     textAlign: "start",
+    marginTop: 20,
   };
   const ImageStyle: CSSProperties = {
     borderRadius: 20,
