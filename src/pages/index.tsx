@@ -1,11 +1,11 @@
 import { CSSProperties } from "react";
-import LargeImageCTA from "~/components/Commons/LargeImageCTA";
-import Navbar from "~/components/Commons/Navbar";
-import CardsSection from "~/components/home/CardsSection";
-import Connect from "~/components/home/Connect";
-import FixedButton from "~/components/home/FixedButton";
-import HeroSection from "~/components/home/HeroSection";
-import Testimonial from "~/components/home/Testimonial";
+import LargeImageCTA from "../components/Commons/LargeImageCTA";
+import Navbar from "../components/Commons/Navbar";
+import CardsSection from "../components/Home/CardsSection";
+import Connect from "../components/Home/Connect";
+import FixedButton from "../components/Home/FixedButton";
+import HeroSection from "../components/Home/HeroSection";
+import Testimonial from "../components/Home/Testimonial";
 
 export default function Home() {
   const containerStyle: CSSProperties = {
