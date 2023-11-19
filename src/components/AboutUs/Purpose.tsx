@@ -22,7 +22,7 @@ const cardDetails = [
     image: visionImage,
     flexDirection: "row-reverse"
   },
-];
+] as const ;
 
 
 export default function Purpose() {
@@ -51,7 +51,7 @@ export default function Purpose() {
     <section style={{display: "grid", gap: "96px", paddingInline: "56px", marginBottom: "152px"}}>
       {
         cardDetails.map((details) => (
-          <div style={{display: "flex", flexDirection: details.flexDirection, justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{display: "flex", flexDirection: `${details.flexDirection}`, justifyContent: "space-between", alignItems: "center" }}>
             <div className="" style={{padding: "62px 38px 126px 74px"}}>
               <Image src={details?.icon} alt="icon" style={{marginBottom: "56px", height: "72px", width: "72px"}} />
               <div className="text_container">
