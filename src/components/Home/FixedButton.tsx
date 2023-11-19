@@ -1,7 +1,11 @@
 import { Icon } from "@iconify/react";
+import { useWindowSize } from "@uidotdev/usehooks";
 import { CSSProperties } from "react";
-import { purpleLight, purpleDark } from "~/styles/Theme";
+import { purpleDark, purpleLight } from "~/styles/Theme";
+
 const FixedButton = (props: any) => {
+  const windowWidth = useWindowSize().width!;
+
   const ButtonStyle: CSSProperties = {
     backgroundColor: purpleDark,
     borderRadius: "32px",
@@ -11,7 +15,7 @@ const FixedButton = (props: any) => {
     textAlign: "center",
     justifyContent: "center",
     margin: "Auto",
-    marginTop: 76,
+    marginTop: 41,
     border: `13px solid ${purpleLight}`,
   };
   const DivStlye: CSSProperties = {
@@ -19,29 +23,26 @@ const FixedButton = (props: any) => {
     alignItems: "center",
     gap: "10px",
     textAlign: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   };
   const TextStyle: CSSProperties = {
     color: "white",
-    fontFamily: "Helvetica Neue",
-    fontSize: 20,
-    fontStyle: "normal",
-    fontWeight: 400,
-    lineHeight: "normal",
-  }
+    fontSize: windowWidth > 767 ? 20 : 10,
+  };
   return (
     <div className="cursor-pointer text-center">
       <button style={ButtonStyle}>
         <div style={DivStlye}>
-         
-
-            <Icon
-              icon="mdi:alarm-clock"
-              color={purpleLight}
-              width="24"
-              height="24"
-            />
-             <p style={TextStyle}>Series D-Event coming up Dec12, 2023. <span style={{textDecoration: 'underline'}}>Register now!</span></p>
+          <Icon
+            icon="mdi:alarm-clock"
+            color={purpleLight}
+            width={windowWidth > 767 ? 24 : 12}
+            height={windowWidth > 767 ? 24 : 12}
+          />
+          <p style={TextStyle}>
+            Series D-Event coming up Dec12, 2023.{" "}
+            <span style={{ textDecoration: "underline" }}>Register now!</span>
+          </p>
         </div>
       </button>
     </div>

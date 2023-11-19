@@ -1,36 +1,29 @@
-import React from "react";
-import Swiper from "swiper";
+import { useWindowSize } from "@uidotdev/usehooks";
+import { useMemo } from "react";
 import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-interface CarouselProps {
-  components: React.ReactNode[];
-}
+const Carousel = (props: any) => {
+  const windowWidth = useWindowSize().width!;
 
-const Carousel: React.FC<CarouselProps> = ({ components }) => {
-  const swiperRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    if (swiperRef.current) {
-      new Swiper(swiperRef.current, {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
-    }
-  }, []);
-
+  const slidesPerView = useMemo(() => {
+    if (windowWidth > 767) {
+      return windowWidth / 400;
+    } else return windowWidth / 300;
+  }, [windowWidth]);
   return (
-    <div className="swiper-container" ref={swiperRef}>
-      <div className="swiper-wrapper">
-        {components.map((component) => (
-          <div className="swiper-slide">{component}</div>
+    <>
+      <Swiper
+        slidesPerView={slidesPerView}
+        keyboard={true}
+        spaceBetween={80}
+        mousewheel={true}
+      >
+        {props.components.map((slide: any, index: number) => (
+          <SwiperSlide key={index}>{slide}</SwiperSlide>
         ))}
-      </div>
-      <div className="swiper-pagination"></div>
-    </div>
+      </Swiper>
+    </>
   );
 };
 
