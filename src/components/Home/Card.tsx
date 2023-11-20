@@ -1,10 +1,9 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { CSSProperties, FC } from "react";
 import { purpleLight } from "~/styles/Theme";
-import { useWindowSize } from "@uidotdev/usehooks";
 
 interface CardProps {
-  image: any;
+  image: HTMLImageElement | string | StaticImageData;
   heading: string;
   body: string;
   color: string;

@@ -1,23 +1,18 @@
 import { useWindowSize } from "@uidotdev/usehooks";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { CSSProperties } from "react";
-import person from "../../assets/home/person.svg";
+import person from "../../assets/home/person.png";
 
 import Card from "./Card";
 
 interface TestimonialCardProps {
   name: string;
   role: string;
-  img: string;
+  img: HTMLImageElement | string | StaticImageData;
   comment: string;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
-  name,
-  role,
-  img,
-  comment,
-}) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role }) => {
   const windowWidth: number = useWindowSize().width!;
 
   const DivStyle: CSSProperties = {

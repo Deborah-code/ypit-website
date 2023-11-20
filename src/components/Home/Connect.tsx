@@ -2,11 +2,11 @@ import { useWindowSize } from "@uidotdev/usehooks";
 import Image from "next/image";
 import { CSSProperties } from "react";
 import { purpleDark } from "~/styles/Theme";
-import globe from "../../assets/home/connectGlobe.svg";
+import globe from "../../assets/home/connectGlobe.png";
 import Button from "../Commons/Button";
 
-const Connect = () => {
-  const windowWidth = useWindowSize().width!;
+const Connect: React.FC = () => {
+  const windowWidth: number = useWindowSize().width!;
 
   const ContainerStyle: CSSProperties = {
     maxWidth: 1072,
@@ -16,6 +16,7 @@ const Connect = () => {
     paddingLeft: 18,
     paddingRight: 18,
   };
+
   const headingTextStyle: CSSProperties = {
     paddingBottom: 24,
     // maxWidth: 600,

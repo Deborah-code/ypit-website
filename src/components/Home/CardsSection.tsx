@@ -1,15 +1,16 @@
-import { CSSProperties } from "react";
-import connect from "~/assets/home/card2.png";
-import network from "~/assets/home/card1.png";
-import grow from "~/assets/home/card3.png";
-import work from "~/assets/home/card4.png"
-import { gradientStyle } from "~/styles/Theme";
-import Card from "./Card";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { CSSProperties } from "react";
 import { purpleLight } from "~/styles/Theme";
+import Card from "./Card";
 
-const CardsSection = () => {
-  const windowWidth = useWindowSize().width!;
+import network from "~/assets/home/card1.png";
+import connect from "~/assets/home/card2.png";
+import grow from "~/assets/home/card3.png";
+import work from "~/assets/home/card4.png";
+import { gradientStyle } from "~/styles/Theme";
+
+const CardsSection: React.FC = () => {
+  const windowWidth: number = useWindowSize().width!;
 
   const containerStyle: CSSProperties = {
     display: windowWidth > 767 ? "flex" : "block",
@@ -26,18 +27,19 @@ const CardsSection = () => {
     fontWeight: "normal",
     paddingBottom: 54,
   };
+
   return (
     <div>
       <p style={headingStyle}>
         Why join <span style={gradientStyle}>YPIT?</span>
       </p>
       <div style={containerStyle}>
-        <div style={{ maxWidth: windowWidth > 767 ? "32%" : "100%"}}>
+        <div style={{ maxWidth: windowWidth > 767 ? "32%" : "100%" }}>
           <Card
             heading="Network"
             body="We're trying to take the awkwardness out of professional networking. YPIT's Series Events are our way of having fun with the community"
             image={network}
-            color= {purpleLight}
+            color={purpleLight}
           />
         </div>
         <Card

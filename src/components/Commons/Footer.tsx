@@ -2,13 +2,14 @@ import { Icon } from "@iconify/react";
 import { useWindowSize } from "@uidotdev/usehooks";
 import Image from "next/image";
 import Link from "next/link";
-import { CSSProperties } from "react";
+import React, { CSSProperties } from "react";
+
 import { MenuData } from "~/data/menuData";
 import { purpleDark } from "~/styles/Theme";
-import LogoImg from "../../assets/commons/navLogo.svg";
+import LogoImg from "../../assets/commons/navLogo.png";
 
-const Footer = () => {
-  const windowWidth = useWindowSize().width!;
+const Footer: React.FC = () => {
+  const windowWidth: number = useWindowSize().width!;
 
   const TextContainerStyle: CSSProperties = {
     display: "flex",
@@ -42,7 +43,11 @@ const Footer = () => {
             maxWidth: windowWidth > 767 ? "50%" : "100%",
           }}
         >
-          <Image src={LogoImg} alt="Logo" style={{ marginBottom: 24 }} />
+          <Image
+            src={LogoImg}
+            alt="Logo"
+            style={{ marginBottom: 24, maxWidth: 130, maxHeight: 50 }}
+          />
           <p style={textColorStyle}>
             A community of Young People In Tech with a mission is to foster
             connections and growth among young individuals in the field of

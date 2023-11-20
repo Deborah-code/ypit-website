@@ -57,7 +57,7 @@ export default function HeroSection() {
         </h1>
         <div style={flexContainer}>
           <p style={textStyle}>
-            YPIT is a community of young professionals in Nigeria's tech
+            YPIT is a community of young professionals in Nigeria&apos;s tech
             ecosystem, brought together with a mission to make impact in Nigeria
             and Africa using technology
           </p>

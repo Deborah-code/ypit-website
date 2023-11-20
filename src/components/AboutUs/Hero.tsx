@@ -31,23 +31,25 @@ const Hero = () => {
   };
   return (
     <>
-    <div style={ContainerStyle}>
-      <div>
-        <h2 style={headingTextStyle}>
-        We're Here to Help You Make Your Mark on the {" "}
-          <span style={{ color: purpleDark }}> Tech Industry</span>
-        </h2>
-        <p style={bodyTextStyle}>
-          {" "}
-          Welcome to a place where innovation knows no bounds, and your tech dreams are fueled with endless possibilities. 
-          We're here to help you make your indelible mark on the tech industry, and we couldn't be more excited about your journey ahead.
-        </p>
-        <div style={bottomDivStyle}>
-          <Button text="Become an active member" />
+      <div style={ContainerStyle}>
+        <div>
+          <h2 style={headingTextStyle}>
+            We&apos;re Here to Help You Make Your Mark on the{" "}
+            <span style={{ color: purpleDark }}> Tech Industry</span>
+          </h2>
+          <p style={bodyTextStyle}>
+            {" "}
+            Welcome to a place where innovation knows no bounds, and your tech
+            dreams are fueled with endless possibilities. We&apos;re here to
+            help you make your indelible mark on the tech industry, and we
+            couldn&apos;t be more excited about your journey ahead.
+          </p>
+          <div style={bottomDivStyle}>
+            <Button text="Become an active member" />
+          </div>
         </div>
+        <Image src={heroStack} alt="globe" width={405} />
       </div>
-      <Image src={heroStack} alt="globe" width={405} />
-    </div>
     </>
   );
 };

@@ -3,10 +3,14 @@ import { useMemo } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const Carousel = (props: any) => {
-  const windowWidth = useWindowSize().width!;
+interface CarouselProps {
+  components: any[];
+}
 
-  const slidesPerView = useMemo(() => {
+const Carousel: React.FC<CarouselProps> = (props) => {
+  const windowWidth: number = useWindowSize().width!;
+
+  const slidesPerView: number = useMemo(() => {
     if (windowWidth > 767) {
       return windowWidth / 400;
     } else return windowWidth / 300;
