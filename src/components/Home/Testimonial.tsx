@@ -3,14 +3,17 @@ import { CSSProperties } from "react";
 import Carousel from "../Commons/Carousel";
 import TestimonialCard from "./TestimonialCard";
 
-const Testimonial = () => {
+interface TestimonialProps {
+  // ... any other props you need
+}
+const Testimonial = (props: TestimonialProps) => {
   const windowWidth = useWindowSize().width!;
 
-  const card = [
-    <TestimonialCard />,
-    <TestimonialCard />,
-    <TestimonialCard />,
-    <TestimonialCard />,
+  const card: JSX.Element[] = [
+    <TestimonialCard name="" img="" role="" comment="" />,
+    <TestimonialCard name="" img="" role="" comment="" />,
+    <TestimonialCard name="" img="" role="" comment="" />,
+    <TestimonialCard name="" img="" role="" comment="" />,
   ];
 
   const ContainerStyle: CSSProperties = {

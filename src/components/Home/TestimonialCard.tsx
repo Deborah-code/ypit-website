@@ -4,13 +4,21 @@ import { CSSProperties } from "react";
 import person from "../../assets/home/person.svg";
 
 import Card from "./Card";
-const TestimonialCard = (
-  name: string,
-  role: string,
-  img: any,
-  comment: string
-) => {
-  const windowWidth = useWindowSize().width!;
+
+interface TestimonialCardProps {
+  name: string;
+  role: string;
+  img: string;
+  comment: string;
+}
+
+const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  name,
+  role,
+  img,
+  comment,
+}) => {
+  const windowWidth: number = useWindowSize().width!;
 
   const DivStyle: CSSProperties = {
     display: "flex",
@@ -29,6 +37,7 @@ const TestimonialCard = (
         body="Lorem ipsum dolor sit amet consectetur. Duis pharetra at commodo urna sed eu consectetur eget adipiscing. Elit sed imperdiet diam mi viverra neque vivamus nunc."
         image=""
         heading=""
+        color=""
       />
       <div style={DivStyle}>
         <Image
@@ -38,8 +47,8 @@ const TestimonialCard = (
           height={windowWidth > 767 ? 86 : 45}
         />
         <div style={TextStyle}>
-          <p>Bolu Ademola</p>
-          <p>Data analyst</p>
+          <p>{name}</p>
+          <p>{role}</p>
         </div>
       </div>
     </div>
