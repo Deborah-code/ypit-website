@@ -1,13 +1,11 @@
 import { useWindowSize } from "@uidotdev/usehooks";
 import { CSSProperties } from "react";
-import { purpleLight } from "~/styles/Theme";
-import Card from "./Card";
-
 import network from "~/assets/home/card1.png";
 import connect from "~/assets/home/card2.png";
 import grow from "~/assets/home/card3.png";
 import work from "~/assets/home/card4.png";
-import { gradientStyle } from "~/styles/Theme";
+import { gradientStyle, purpleLight } from "~/styles/Theme";
+import Card from "./Card";
 
 const CardsSection: React.FC = () => {
   const windowWidth: number = useWindowSize().width!;
