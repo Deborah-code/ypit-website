@@ -10,6 +10,12 @@ import { gradientStyle } from "~/styles/Theme";
 import heroImage from "../assets/aboutUs/heroImage.png";
 
 export default function AboutUs() {
+  const containerStyle: CSSProperties = {
+    textAlign: "center",
+    alignItems: "center",
+    overflow: "hidden",
+    maxWidth: "100%",
+  };
   const headingTextStyle: CSSProperties = {
     marginTop: 96,
     marginBottom: 84,
@@ -25,7 +31,7 @@ export default function AboutUs() {
   };
   return (
     <>
-      <main>
+      <main style={containerStyle}>
         <Navbar />
         <h1 className="text-red" style={headingTextStyle}>
           About us at <span style={gradientStyle}>YPIT</span>

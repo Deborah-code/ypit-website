@@ -1,3 +1,4 @@
+import { useWindowSize } from "@uidotdev/usehooks";
 import Image, { StaticImageData } from "next/image";
 import { FC } from "react";
 import { gradientStyle } from "~/styles/Theme";
@@ -10,16 +11,24 @@ interface TeamProps {
   role: string;
 }
 const TeamCard: FC<TeamProps> = ({ image, name, role }) => {
+  const windowWidth = useWindowSize().width!;
+
   return (
     <div style={{ position: "relative" }}>
       <Image
         src={image}
         alt={name}
-        width={409}
-        height={580}
+        width={windowWidth > 767 ? 409 : 272}
+        height={windowWidth > 767 ? 580 : 408}
         style={{ borderRadius: 20 }}
       />
-      <div style={{ position: "absolute", bottom: 24, left: 24 }}>
+      <div
+        style={{
+          position: "absolute",
+          bottom: windowWidth > 767 ? 24 : 16,
+          left: windowWidth > 767 ? 24 : 16,
+        }}
+      >
         <p style={{ color: "white" }}>{name}</p>
         <p style={{ color: "#FFD855", fontSize: 16 }}>{role}</p>
       </div>
@@ -60,11 +69,11 @@ const card: JSX.Element[] = [
 ];
 const TeamSection = () => {
   return (
-    <div>
+    <div style={{ paddingLeft: 18 }}>
       <h1 style={{ paddingBottom: 54, textAlign: "center" }}>
         Meet our Amazing Team at <span style={gradientStyle}>YPIT</span>
       </h1>
-      <Carousel components={card} width={409} mobileWidth={409} />
+      <Carousel components={card} width={409} mobileWidth={270} />
     </div>
   );
 };
