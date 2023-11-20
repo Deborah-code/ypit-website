@@ -1,7 +1,13 @@
 import { Icon } from "@iconify/react";
-import { CSSProperties } from "react";
+import { CSSProperties, FC } from "react";
 import { purpleLight } from "~/styles/Theme";
-const Button = (props: any) => {
+
+interface ButtonProps {
+  text: string;
+  globeButton?: boolean;
+}
+
+const Button: FC<ButtonProps> = (props) => {
   const ButtonStyle: CSSProperties = {
     backgroundColor: purpleLight,
   };

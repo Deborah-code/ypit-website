@@ -1,0 +1,57 @@
+import Image from "next/image";
+import { CSSProperties } from "react";
+import { purpleDark } from "~/styles/Theme";
+import heroStack from "../../assets/aboutUs/heroStack.png";
+import Button from "../Commons/Button";
+
+const Hero = () => {
+  const ContainerStyle: CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    maxWidth: 1220,
+    margin: "auto",
+    justifyContent: "center",
+    textAlign: "start",
+    paddingBottom: 96,
+    // flexDirection: "column"
+  };
+  const headingTextStyle: CSSProperties = {
+    fontSize: 44,
+    paddingBottom: 24,
+    maxWidth: 700,
+  };
+  const bodyTextStyle: CSSProperties = {
+    maxWidth: 600,
+  };
+  const bottomDivStyle: CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    paddingTop: 44,
+    gap: 49,
+  };
+  return (
+    <>
+      <div style={ContainerStyle}>
+        <div>
+          <h2 style={headingTextStyle}>
+            We&apos;re Here to Help You Make Your Mark on the{" "}
+            <span style={{ color: purpleDark }}> Tech Industry</span>
+          </h2>
+          <p style={bodyTextStyle}>
+            {" "}
+            Welcome to a place where innovation knows no bounds, and your tech
+            dreams are fueled with endless possibilities. We&apos;re here to
+            help you make your indelible mark on the tech industry, and we
+            couldn&apos;t be more excited about your journey ahead.
+          </p>
+          <div style={bottomDivStyle}>
+            <Button text="Become an active member" />
+          </div>
+        </div>
+        <Image src={heroStack} alt="globe" width={405} />
+      </div>
+    </>
+  );
+};
+
+export default Hero;

@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -33,4 +31,79 @@ color: #5100BF
 
 button p{
   margin: 0;
+}
+
+h1, h2, h3, h4, p{
+  margin: 0;
+}
+
+h1{
+font-family: 'Big Shoulders Display';
+font-size: 35px;
+font-style: normal;
+font-weight: 700;
+line-height: 43px; 
+text-transform: capitalize;
+}
+
+h2{
+font-family: 'Big Shoulders Display';
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+h3{
+color: #171717;
+font-family: 'Neue Helvetica';
+font-size: 29px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+h4{
+font-family: 'Neue Helvetica';
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+p{
+font-family: 'Neue Helvetica';
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+@media only screen and (min-width:768px) {
+  h1{
+    font-size: 64px;
+    line-height: 75.076px; /* 117.306% */
+
+    }
+    
+    h2{
+    font-size: 56px;
+    
+    }
+    
+    h3{
+    
+    font-size: 56px;
+    
+    }
+
+    h4{
+    font-size: 40px;
+   
+    }
+    
+    p{
+    font-size: 24px;
+    
+    }
 }
