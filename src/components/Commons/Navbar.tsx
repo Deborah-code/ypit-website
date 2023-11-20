@@ -20,6 +20,9 @@ const Navbar: React.FC = () => {
     paddingTop: windowWidth < 767 ? "16px" : "32px",
     paddingBottom: windowWidth < 767 ? "16px" : "32px",
     borderBottom: "1px solid #EBEAEA",
+    maxWidth: 1320,
+    marginLeft: "auto",
+    marginRight: "auto",
   };
 
   const TextContainerStyle: CSSProperties = {

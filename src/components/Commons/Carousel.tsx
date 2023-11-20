@@ -1,10 +1,17 @@
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useMemo } from "react";
-import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 interface CarouselProps {
   components: any[];
+  width: number;
+  mobileWidth: number;
 }
 
 const Carousel: React.FC<CarouselProps> = (props) => {
@@ -12,8 +19,8 @@ const Carousel: React.FC<CarouselProps> = (props) => {
 
   const slidesPerView: number = useMemo(() => {
     if (windowWidth > 767) {
-      return windowWidth / 400;
-    } else return windowWidth / 300;
+      return windowWidth / props.width;
+    } else return windowWidth / props.mobileWidth;
   }, [windowWidth]);
   return (
     <>
@@ -22,6 +29,10 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         keyboard={true}
         spaceBetween={80}
         mousewheel={true}
+        style={{
+          overflow: "visible",
+          justifyContent: "start",
+        }}
       >
         {props.components.map((slide: any, index: number) => (
           <SwiperSlide key={index}>{slide}</SwiperSlide>

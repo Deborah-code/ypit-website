@@ -59,6 +59,9 @@ export default function Purpose(): JSX.Element {
         gap: "96px",
         paddingInline: "56px",
         marginBottom: "152px",
+        maxWidth: 1320,
+        marginLeft: "auto",
+        marginRight: "auto",
       }}
     >
       {cardDetails.map((details, index) => (
@@ -75,7 +78,11 @@ export default function Purpose(): JSX.Element {
             <Image
               src={details?.icon}
               alt="icon"
-              style={{ marginBottom: "56px", height: "72px", width: "72px" }}
+              style={{
+                marginBottom: "56px",
+                height: "72px",
+                width: "72px",
+              }}
             />
             <div className="text_container">
               <h2 style={heading}>{details?.heading}</h2>
