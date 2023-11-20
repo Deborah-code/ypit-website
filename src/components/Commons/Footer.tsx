@@ -35,6 +35,7 @@ const Footer: React.FC = () => {
           paddingRight: 18,
           alignItems: "start",
           textAlign: "left",
+          justifyContent: "center",
         }}
       >
         <div
@@ -86,13 +87,27 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      <p style={textColorStyle}>
-        Made with{" "}
-        <span style={{ height: 22 }}>
-          <Icon icon="mdi:heart" width={23} height={23} />
-        </span>{" "}
-        by the YPIT innovation hub
-      </p>
+      <div
+        style={{
+          maxWidth: 410,
+          margin: "auto",
+          paddingBottom: 64,
+          textAlign: "center",
+        }}
+      >
+        <p style={textColorStyle}>
+          Made with{" "}
+          <span style={{ height: 22 }}>
+            <Icon
+              icon="mdi:heart"
+              width={23}
+              height={23}
+              style={{ marginBottom: -4 }}
+            />
+          </span>{" "}
+          by the YPIT innovation hub
+        </p>
+      </div>
     </div>
   );
 };
