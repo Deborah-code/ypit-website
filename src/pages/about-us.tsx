@@ -1,3 +1,4 @@
+import { useWindowSize } from "@uidotdev/usehooks";
 import Hero from "~/components/AboutUs/Hero";
 import Navbar from "~/components/Commons/Navbar";
 import { gradientStyle } from "~/styles/Theme";
@@ -8,6 +9,7 @@ import Purpose from "~/components/AboutUs/Purpose";
 
 
 export default function AboutUs() {
+  const windowWidth = useWindowSize().width!;
   const headingTextStyle: CSSProperties = {
     marginTop: 96,
     marginBottom: 84,
@@ -18,16 +20,19 @@ export default function AboutUs() {
     alignItems: "center",
     justifyContent: "center",
     paddingTop: 44,
-    gap: 290,
-    marginBottom: 290
+    gap: windowWidth < 768 ? "24px" : 290,
+    marginBottom: windowWidth < 768 ? "48px" : "6rem"
+  };
+  const containerStyle: CSSProperties = {
+    overflow: "hidden",
   };
   return (
     <>
-      <main>
+      <main style={containerStyle}>
         <Navbar />
         <h1 className="text-red" style={headingTextStyle}>About us at <span style={gradientStyle} >YPIT</span></h1>
         <Hero />
-        <Image src={heroImage} alt="Hero Image" style={{width: "95vw", display: "block", marginInline: "auto"}} />
+        <Image src={heroImage} alt="Hero Image" style={{maxWidth: "95%", display: "block", marginInline: "auto", height: windowWidth < 768 ? "15em" : "auto"}} />
         <div style={bottomDivStyle}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <p style={{ fontSize: 44 }}>700+</p>

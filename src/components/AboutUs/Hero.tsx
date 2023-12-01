@@ -1,3 +1,4 @@
+import { useWindowSize } from "@uidotdev/usehooks";
 import Image from "next/image";
 import { CSSProperties } from "react";
 import { purpleDark } from "~/styles/Theme";
@@ -5,6 +6,8 @@ import heroStack from "../../assets/aboutUs/heroStack.png";
 import Button from "../Commons/Button";
 
 const Hero = () => {
+  const windowWidth = useWindowSize().width!;
+
   const ContainerStyle: CSSProperties = {
     display: "flex",
     alignItems: "center",
@@ -13,10 +16,11 @@ const Hero = () => {
     justifyContent: "center",
     textAlign: "start",
     paddingBottom: 96,
-    // flexDirection: "column"
+    flexDirection: windowWidth < 768 ? "column" : "row",
+    paddingInline: "1rem",
   };
   const headingTextStyle: CSSProperties = {
-    fontSize: 44,
+    fontSize: windowWidth < 768 ? 27 : 44,
     paddingBottom: 24,
     maxWidth: 700,
   };
@@ -28,6 +32,7 @@ const Hero = () => {
     alignItems: "center",
     paddingTop: 44,
     gap: 49,
+    marginBottom: windowWidth < 768 ? "2rem" : 0
   };
   return (
     <>
