@@ -1,19 +1,33 @@
+import Image, { StaticImageData } from "next/image";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { CSSProperties } from "react";
-import Image from "next/image";
-import missionImage from "../../assets/aboutUs/missionImage.png"
-import missionIcon from "../../assets/aboutUs/missionIcon.png"
-import visionImage from "../../assets/aboutUs/visionImage.png"
-import visionIcon from "../../assets/aboutUs/visoionIcon.png"
+import missionIcon from "../../assets/aboutUs/missionIcon.png";
+import missionImage from "../../assets/aboutUs/missionImage.png";
+import visionImage from "../../assets/aboutUs/visionImage.png";
+import visionIcon from "../../assets/aboutUs/visoionIcon.png";
 
-const cardDetails = [
+interface CardDetails {
+  icon: HTMLImageElement | string | StaticImageData;
+  heading: string;
+  text: string;
+  image: HTMLImageElement | string | StaticImageData;
+  flexDirection: "row" | "row-reverse" | undefined;
+}
+
+const cardDetails: {
+  icon: HTMLImageElement | string | StaticImageData;
+  heading: string;
+  text: string;
+  image: HTMLImageElement | string | StaticImageData;
+  flexDirection: "row" | "row-reverse";
+}[] = [
   {
     icon: missionIcon,
     heading: "Mission",
     text: `The community's mission is to foster connections among young individuals in the field of technology across Africa 
     through the utilisation of physical events, virtual events, and targeted communication.`,
     image: missionImage,
-    flexDirection: "row"
+    flexDirection: "row",
   },
   {
     icon: visionIcon,
@@ -21,13 +35,13 @@ const cardDetails = [
     text: `The community envisions becoming a thriving environment that fosters growth and development through networking for aspiring 
     and fledgling technologically interested individuals across Africa`,
     image: visionImage,
-    flexDirection: "row-reverse"
+    flexDirection: "row-reverse",
   },
-] as const ;
+];
 
 
-export default function Purpose() {
-  const windowWidth = useWindowSize().width!;
+export default function Purpose(): JSX.Element {
+    const windowWidth =useWindowSize().width!
   const heading: CSSProperties = {
     fontFamily: "Neue Helvetica",
     fontSize: "40px",
@@ -35,11 +49,10 @@ export default function Purpose() {
     fontWeight: 450,
     lineHeight: "normal",
     marginBottom: "16px",
-    color: "#000"
-  }
+    color: "#000",
+  };
   const text: CSSProperties = {
     color: "#626262",
-  /* PARAGRAPH TEXT(R) */
     fontFamily: "Neue Helvetica",
     fontSize: "24px",
     fontStyle: "normal",
@@ -68,6 +81,7 @@ export default function Purpose() {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    textAlign: "left"
   }
   const imgContainer: CSSProperties = {
     padding: "24px",
@@ -101,5 +115,5 @@ export default function Purpose() {
         ))
       }
     </section>
-  )
+  );
 }
