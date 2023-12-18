@@ -1,6 +1,6 @@
+import { useWindowSize } from "@uidotdev/usehooks";
 import Image from "next/image";
 import { CSSProperties } from "react";
-import { useWindowSize } from "@uidotdev/usehooks";
 import Hero from "~/components/AboutUs/Hero";
 import Purpose from "~/components/AboutUs/Purpose";
 import TeamSection from "~/components/AboutUs/TeamSection";
@@ -29,9 +29,9 @@ export default function AboutUs() {
     justifyContent: "center",
     paddingTop: 44,
     gap: windowWidth < 768 ? "24px" : 290,
-    marginBottom: windowWidth < 768 ? "48px" : "6rem"
+    marginBottom: windowWidth < 768 ? "48px" : "6rem",
   };
-  
+
   return (
     <>
       <main style={containerStyle}>
@@ -50,7 +50,7 @@ export default function AboutUs() {
             maxWidth: 1320,
             marginLeft: "auto",
             marginRight: "auto",
-            maxHeight: windowWidth < 767 ? 181 : "auto"
+            maxHeight: windowWidth < 767 ? 181 : "none",
           }}
         />
         <div style={bottomDivStyle}>
