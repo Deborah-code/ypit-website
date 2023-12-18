@@ -1,14 +1,14 @@
+import { useWindowSize } from "@uidotdev/usehooks";
 import Image from "next/image";
 import { CSSProperties } from "react";
 import { gradientStyle } from "~/styles/Theme";
 import largeLogo from "../../assets/commons/ypitLargeGroupLogo.png";
 import Button from "./Button";
-import { useWindowSize } from "@uidotdev/usehooks";
 const LargeImageCTA = () => {
   const windowWidth = useWindowSize().width!;
   const ContainerStyle: CSSProperties = {
     textAlign: "center",
-    paddingBottom: 96,
+    paddingBottom: windowWidth > 767 ? 96 : 64,
     maxWidth: 1220,
     margin: "auto",
   };
