@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from "next/image";
 import { useWindowSize } from "@uidotdev/usehooks";
+import Image, { StaticImageData } from "next/image";
 import { CSSProperties } from "react";
 import missionIcon from "../../assets/aboutUs/missionIcon.png";
 import missionImage from "../../assets/aboutUs/missionImage.png";
@@ -11,16 +11,10 @@ interface CardDetails {
   heading: string;
   text: string;
   image: HTMLImageElement | string | StaticImageData;
-  flexDirection: "row" | "row-reverse" | undefined;
+  flexDirection: "row" | "row-reverse";
 }
 
-const cardDetails: {
-  icon: HTMLImageElement | string | StaticImageData;
-  heading: string;
-  text: string;
-  image: HTMLImageElement | string | StaticImageData;
-  flexDirection: "row" | "row-reverse";
-}[] = [
+const cardDetails: CardDetails[] = [
   {
     icon: missionIcon,
     heading: "Mission",
@@ -39,9 +33,8 @@ const cardDetails: {
   },
 ];
 
-
 export default function Purpose(): JSX.Element {
-    const windowWidth =useWindowSize().width!
+  const windowWidth = useWindowSize().width!;
   const heading: CSSProperties = {
     fontFamily: "Neue Helvetica",
     fontSize: "40px",
@@ -58,16 +51,16 @@ export default function Purpose(): JSX.Element {
     fontStyle: "normal",
     fontWeight: 400,
     lineHeight: "normal",
-    width: windowWidth > 767 ? "37.5rem" : ""
-  }
+    width: windowWidth > 767 ? "37.5rem" : "",
+  };
   const leftSide: CSSProperties = {
-    padding: windowWidth > 767 ? "62px 38px 80px 74px" : "1.5rem 0"
-  }
+    padding: windowWidth > 767 ? "62px 38px 80px 74px" : "1.5rem 0",
+  };
   const imgIcon: CSSProperties = {
     marginBottom: "56px",
     height: "4.5em",
-    width: "4.5em"
-  }
+    width: "4.5em",
+  };
   const sectionStyle: CSSProperties = {
     display: "grid",
     gap: "2rem",
@@ -75,45 +68,50 @@ export default function Purpose(): JSX.Element {
     justifyContent: "center",
     maxWidth: 1220,
     marginInline: "auto",
-    padding: "0 1rem"
-  }
+    padding: "0 1rem",
+  };
   const containerStyle: CSSProperties = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    textAlign: "left"
-  }
+    textAlign: "left",
+  };
   const imgContainer: CSSProperties = {
     padding: "24px",
     borderRadius: "44px",
     border: "1px solid #AF8AE2",
-    height: windowWidth < 767 ? "21rem": "auto",
-  }
+    height: windowWidth < 767 ? "21rem" : "auto",
+  };
   const image: CSSProperties = {
     borderRadius: "29.227px",
     width: windowWidth < 767 ? "100%" : "31.25em",
     height: "100%",
-  }
-  
+  };
 
   return (
     <section style={sectionStyle}>
-      {
-        cardDetails.map((details) => (
-          <div style={{flexDirection: `${windowWidth < 1440 ? "column" : details.flexDirection}`, ...containerStyle}}>
-            <div className="" style={leftSide}>
-              <Image src={details?.icon} alt="icon" style={imgIcon} />
-              <div className="text_container">
-                <h2 style={heading}>{details?.heading}</h2>
-                <p style={text}>{details?.text}</p>
-              </div>
-            </div>
-            <div className="image_container" style={imgContainer}>
-              <Image src={details?.image} alt="Hero Image" style={image} />
+      {cardDetails.map((details, id) => (
+        <div
+          style={{
+            flexDirection: `${
+              windowWidth < 1440 ? "column" : details.flexDirection
+            }`,
+            ...containerStyle,
+          }}
+          key={id}
+        >
+          <div className="" style={leftSide}>
+            <Image src={details?.icon} alt="icon" style={imgIcon} />
+            <div className="text_container">
+              <h2 style={heading}>{details?.heading}</h2>
+              <p style={text}>{details?.text}</p>
             </div>
           </div>
-        ))
-      }
+          <div className="image_container" style={imgContainer}>
+            <Image src={details?.image} alt="Hero Image" style={image} />
+          </div>
+        </div>
+      ))}
     </section>
   );
 }
