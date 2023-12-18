@@ -12,20 +12,15 @@ const LargeImageCTA = () => {
     maxWidth: 1220,
     margin: "auto",
   };
-  const ImageStyle: CSSProperties = {
-    maxWidth: windowWidth > 767 ? "60%" : "80%",
+  const ImageStyle: CSSProperties ={
+    maxWidth: "100%",
     maxHeight: windowWidth > 767 ? 470 : 300,
     paddingBottom: windowWidth > 767 ? 54 : 32,
     paddingTop: windowWidth > 767 ? 64 : 50,
   };
   return (
     <div style={ContainerStyle}>
-      <Image
-        src={largeLogo}
-        alt="Large Ypit Logo"
-        objectFit="contain"
-        style={ImageStyle}
-      />
+      <Image src={largeLogo} alt="Large Ypit Logo" style={ImageStyle} />
       <h4>Discover the power of young people in tech.</h4>
       <h4 style={gradientStyle}>Connect and Grow!</h4>
       <div

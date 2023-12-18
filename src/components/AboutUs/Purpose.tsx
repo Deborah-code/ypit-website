@@ -1,3 +1,4 @@
+import { useWindowSize } from "@uidotdev/usehooks";
 import Image, { StaticImageData } from "next/image";
 import { CSSProperties } from "react";
 import missionIcon from "../../assets/aboutUs/missionIcon.png";
@@ -33,6 +34,7 @@ const cardDetails: CardDetails[] = [
 ];
 
 export default function Purpose(): JSX.Element {
+  const windowWidth = useWindowSize().width!;
   const heading: CSSProperties = {
     fontFamily: "Neue Helvetica",
     fontSize: "40px",
@@ -49,59 +51,64 @@ export default function Purpose(): JSX.Element {
     fontStyle: "normal",
     fontWeight: 400,
     lineHeight: "normal",
-    width: "646px",
+    width: windowWidth > 767 ? "37.5rem" : "",
+  };
+  const leftSide: CSSProperties = {
+    padding: windowWidth > 767 ? "62px 38px 80px 74px" : "1.5rem 0",
+  };
+  const imgIcon: CSSProperties = {
+    marginBottom: "56px",
+    height: "4.5em",
+    width: "4.5em",
+  };
+  const sectionStyle: CSSProperties = {
+    display: "grid",
+    gap: "2rem",
+    marginBottom: "152px",
+    justifyContent: "center",
+    maxWidth: 1220,
+    marginInline: "auto",
+    padding: "0 1rem",
+  };
+  const containerStyle: CSSProperties = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    textAlign: "left",
+  };
+  const imgContainer: CSSProperties = {
+    padding: "24px",
+    borderRadius: "44px",
+    border: "1px solid #AF8AE2",
+    height: windowWidth < 767 ? "21rem" : "auto",
+  };
+  const image: CSSProperties = {
+    borderRadius: "29.227px",
+    width: windowWidth < 767 ? "100%" : "31.25em",
+    height: "100%",
   };
 
   return (
-    <section
-      style={{
-        display: "grid",
-        gap: "96px",
-        paddingInline: "56px",
-        marginBottom: "152px",
-        maxWidth: 1320,
-        marginLeft: "auto",
-        marginRight: "auto",
-      }}
-    >
-      {cardDetails.map((details, index) => (
+    <section style={sectionStyle}>
+      {cardDetails.map((details, id) => (
         <div
-          key={index}
           style={{
-            display: "flex",
-            flexDirection: `${details.flexDirection}`,
-            justifyContent: "space-between",
-            alignItems: "center",
+            flexDirection: `${
+              windowWidth < 1440 ? "column" : details.flexDirection
+            }`,
+            ...containerStyle,
           }}
+          key={id}
         >
-          <div className="" style={{ padding: "62px 38px 126px 74px" }}>
-            <Image
-              src={details?.icon}
-              alt="icon"
-              style={{
-                marginBottom: "56px",
-                height: "72px",
-                width: "72px",
-              }}
-            />
+          <div className="" style={leftSide}>
+            <Image src={details?.icon} alt="icon" style={imgIcon} />
             <div className="text_container">
               <h2 style={heading}>{details?.heading}</h2>
               <p style={text}>{details?.text}</p>
             </div>
           </div>
-          <div
-            className="image_container"
-            style={{
-              padding: "24px",
-              borderRadius: "44px",
-              border: "1px solid #AF8AE2",
-            }}
-          >
-            <Image
-              src={details?.image}
-              alt="Hero Image"
-              style={{ borderRadius: "29.227px" }}
-            />
+          <div className="image_container" style={imgContainer}>
+            <Image src={details?.image} alt="Hero Image" style={image} />
           </div>
         </div>
       ))}

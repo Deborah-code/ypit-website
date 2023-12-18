@@ -1,3 +1,4 @@
+import { useWindowSize } from "@uidotdev/usehooks";
 import Image from "next/image";
 import { CSSProperties } from "react";
 import Hero from "~/components/AboutUs/Hero";
@@ -16,6 +17,7 @@ export default function AboutUs() {
     overflow: "hidden",
     maxWidth: "100%",
   };
+  const windowWidth = useWindowSize().width!;
   const headingTextStyle: CSSProperties = {
     marginTop: 96,
     marginBottom: 84,
@@ -26,9 +28,10 @@ export default function AboutUs() {
     alignItems: "center",
     justifyContent: "center",
     paddingTop: 44,
-    gap: 290,
-    marginBottom: 290,
+    gap: windowWidth < 768 ? "24px" : 290,
+    marginBottom: windowWidth < 768 ? "48px" : "6rem",
   };
+
   return (
     <>
       <main style={containerStyle}>
@@ -47,6 +50,7 @@ export default function AboutUs() {
             maxWidth: 1320,
             marginLeft: "auto",
             marginRight: "auto",
+            maxHeight: windowWidth < 767 ? 181 : "none",
           }}
         />
         <div style={bottomDivStyle}>
